@@ -23,7 +23,9 @@ Plink format:
         rs"\t"A"\t"T"\t"0.1577
         
 
-Step1.py: We use the CubeX's code to calculate gametes' frequency[1]. 
+Step1.py:
+
+In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE(Maximum Likelihood Estimation)[1]. One pair of sites has 500 times repeat disturbance experiment. We also use 'CubeX' python script to help us calculate the pairs' gametes frequency[2]. 
 
     Input parameters include: 
   
@@ -37,7 +39,9 @@ Step1.py: We use the CubeX's code to calculate gametes' frequency[1].
   
       -ncpus(with pp module)
 
-Step2.r: We need a r-package named 'tmvtnorm'[2] to create gmap.
+Step2.r: 
+
+We need a r-package named 'tmvtnorm'[3] to create gmap. In this step, we estimate the mean of disturbance experiment's data set whose distribution will be truncated normal distribution. 
 
     Input parameters include:
     
@@ -45,7 +49,10 @@ Step2.r: We need a r-package named 'tmvtnorm'[2] to create gmap.
       
       -output_path
     
-Step3.py/Step4.py/Step5.py: convert gmap to rmap
+Step3.py/Step4.py/Step5.py: 
+
+In this step, we convert gmap to rmap. Like Decode genetic method[4], we use the linear interpolation to calculate the SRR(standard recombination rate). 
+
 
     Input parameters include:
     
@@ -67,7 +74,7 @@ Step3.py/Step4.py/Step5.py: convert gmap to rmap
       -outputpath: accurate gmap file
 
 
-      -step5[3]
+      -step5
       
       -inputPath : accurate gmap file
       
@@ -79,11 +86,10 @@ Step3.py/Step4.py/Step5.py: convert gmap to rmap
 
 
 
+1.Brenner, C. H. (1997). Symbolic Kinship Program. Genetics, 145(2), 535–542.
 
+2. Gaunt, T. R., Rodríguez, S., & Day, I. N. (2007). Cubic exact solutions for the estimation of pairwise haplotype frequencies: implications for linkage disequilibrium analyses and a web tool “CubeX.” BMC Bioinformatics, 8(1), 428. https://doi.org/10.1186/1471-2105-8-428
 
+3. Wilhelm, S., & Manjunath, B. G. (2010). tmvtnorm : A Package for the Truncated Multivariate Normal Distribution Generation of random numbers computation of marginal densities. The R Journal, 2(1), 25–29.
 
-1. Gaunt, T. R., Rodríguez, S., & Day, I. N. (2007). Cubic exact solutions for the estimation of pairwise haplotype frequencies: implications for linkage disequilibrium analyses and a web tool “CubeX.” BMC Bioinformatics, 8(1), 428. https://doi.org/10.1186/1471-2105-8-428
-
-2. Wilhelm, S., & Manjunath, B. G. (2010). tmvtnorm : A Package for the Truncated Multivariate Normal Distribution Generation of random numbers computation of marginal densities. The R Journal, 2(1), 25–29.
-
-3. Kong, A., Gudbjartsson, D. F., Sainz, J., Jonsdottir, G. M., Gudjonsson, S. A., Richardsson, B., … Stefansson, K. (2002). 2002:A high-resolution recombination map of the human genome. Nature Genetics, 31(3), 241–7. https://doi.org/10.1038/ng917
+4. Kong, A., Gudbjartsson, D. F., Sainz, J., Jonsdottir, G. M., Gudjonsson, S. A., Richardsson, B., … Stefansson, K. (2002). 2002:A high-resolution recombination map of the human genome. Nature Genetics, 31(3), 241–7. https://doi.org/10.1038/ng917
