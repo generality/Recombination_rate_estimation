@@ -1,7 +1,9 @@
 # Recombination_rate_estimation
-Bioinformatics_code
+(Bioinformatics) Script for estimating per-generation RR(recombination rate).
 
-Before the step of estimation, you need to provide the plink format with tab and space.
+Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function. [1]
+
+We use the plink format *.ped , *.map and *.frq file in the following steps of estimation.
 
 Plink format:
 
@@ -25,7 +27,7 @@ Plink format:
 
 Step1.py:
 
-In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE(Maximum Likelihood Estimation)[1]. One pair of sites has 500 times repeat disturbance experiment. We also use 'CubeX' python script to help us calculate the pairs' gametes frequency[2]. 
+In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE. One pair of sites has 500 times repeat disturbance experiment. We also use 'CubeX' python script to help us calculate the pairs' gametes frequency[2]. 
 
     Input parameters include: 
   
