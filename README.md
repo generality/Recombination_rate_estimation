@@ -1,7 +1,7 @@
 # Recombination_rate_estimation
 (Bioinformatics) Script for estimating per-generation RR(recombination rate).
 
-Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function. [1]
+Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function[1]. In the procedure of estiamting, we propose repeat disturbance experiment to curve the estiamtion's distribution and infer the parameter which is an approximately accurate estimation. Finally, we provide our script for converrting RR to SRR(standard recombination rate) to compare with other results.
 
 We use the plink format *.ped , *.map and *.frq file in the following steps of estimation.
 
@@ -27,7 +27,7 @@ Plink format:
 
 Step1.py:
 
-In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE. One pair of sites has 500 times repeat disturbance experiment. We also use 'CubeX' python script to help us calculate the pairs' gametes frequency[2]. 
+In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE. One pair of sites has 500 times repeat disturbance experiment. What's more, we use 'CubeX' python script in MLE to help us calculate the pairs' gametes frequency[2]. 
 
     Input parameters include: 
   
@@ -43,7 +43,7 @@ In step1, we use plink format genotype file to create a set of recombination rat
 
 Step2.r: 
 
-We need a r-package named 'tmvtnorm'[3] to create gmap. In this step, we estimate the mean of disturbance experiment's data set whose distribution will be truncated normal distribution. 
+We need a r-package named 'tmvtnorm'[3] to create gmap. In this step, we estimate the mean of disturbance experiment's data set whose distribution is truncated normal distribution. 
 
     Input parameters include:
     
@@ -53,7 +53,7 @@ We need a r-package named 'tmvtnorm'[3] to create gmap. In this step, we estimat
     
 Step3.py/Step4.py/Step5.py: 
 
-In this step, we convert gmap to rmap. Like Decode genetic method[4], we use the linear interpolation to calculate the SRR(standard recombination rate). 
+In this step, we convert gmap to rmap. Like Decode genetic method[4], we use the linear interpolation to calculate the SRR. 
 
 
     Input parameters include:
