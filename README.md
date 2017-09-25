@@ -3,6 +3,25 @@ Bioinformatics_code
 
 Before the step of estimation, you need to provide the plink format with tab and space.
 
+Plink format:
+
+    -MRlt.ped:
+
+        fam1"\t"id1"\t0\t0\t0\t0\tA T\tC G\n"
+        fam1"\t"id2"\t0\tid1\t0\t0\tA T\tC G\n"
+        fam2"\t"id3"\t0\t0\t0\t0\tA T\tC G\n"
+        fam2"\t"id4"\t0\tid3\t0\t0\tA T\tC G\n"
+
+    -Unr.ped:
+        fam1"\t"id1"\t0\t0\t0\t0\tA T\tC G\n"
+        fam2"\t"id3"\t0\t0\t0\t0\tA T\tC G\n"
+        
+    -*.map:
+        chr"\t"rs"\t"0"\t"loc
+        
+    -*.frq:
+        rs"\t"A"\t"T"\t"0.1577
+        
 
 Step1.py: We use the CubeX's code to calculate gametes' frequency[1]. 
 
