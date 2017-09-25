@@ -88,7 +88,7 @@ In this step, we convert gmap to rmap. Like Decode genetic method[4], we use the
 
 
 
-1.Brenner, C. H. (1997). Symbolic Kinship Program. Genetics, 145(2), 535–542.
+1. Brenner, C. H. (1997). Symbolic Kinship Program. Genetics, 145(2), 535–542.
 
 2. Gaunt, T. R., Rodríguez, S., & Day, I. N. (2007). Cubic exact solutions for the estimation of pairwise haplotype frequencies: implications for linkage disequilibrium analyses and a web tool “CubeX.” BMC Bioinformatics, 8(1), 428. https://doi.org/10.1186/1471-2105-8-428
 
