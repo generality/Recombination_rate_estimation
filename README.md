@@ -1,7 +1,7 @@
 # Recombination_rate_estimation
 (Bioinformatics) Script for estimating per-generation RR(recombination rate).
 
-Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function[1]. In the procedure of estiamting, we propose repeat disturbance experiment to curve the estiamtion's distribution and infer the parameter which is an approximately accurate estimation. Finally, we provide our script for converrting RR to SRR(standard recombination rate) to compare with other results.
+Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function[1]. In the procedure of estiamting, we propose repeat disturbance experiment to curve the estimation's distribution and infer the parameter which is an approximately accurate estimation. Finally, we provide our script for converrting RR to SRR(standard recombination rate) to compare with other results.
 
 We use the plink format *.ped , *.map and *.frq file in the following steps of estimation.
 
