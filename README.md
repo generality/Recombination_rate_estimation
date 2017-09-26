@@ -1,4 +1,4 @@
-# Recombination_rate_estimation
+# Recombination rate estimation and recombination map reconstruction
 Bioinformatics scripts for estimating per-generation recombination rate (r) from parent-child genotyping data.
 
 The main idea is to employ the likelihood recursive function for kinship [1],  where r as a variable, and use Maximum Likelihood Estimation (MLE) to estimate r. Technologically, r between two SNPs can be inferred in condition that there is linkage disequilibrium (LD) between the two SNPs. However, over 15K parent-child pairs are usually needed to infer r reliably (sample size comparable with the deCODE project and the AA map project). Thus, to enhance the power, we usually include 10 serial SNPs (with a region of ~ 10kbp) for inferring the r at a 10kbp region.
