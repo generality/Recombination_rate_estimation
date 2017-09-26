@@ -1,8 +1,11 @@
 # Recombination_rate_estimation
-(Bioinformatics) Script for estimating per-generation RR(recombination rate).
+Bioinformatics Scripts for estimating per-generation recombination rate (r) from parent-child genotyping data.
 
-Our main idea of estimating RR is MLE(Maximum Likelihood Estimation) via transforming the kinship test likelihood recursive function[1]. In the procedure of estiamting, we propose repeat disturbance experiment to curve the estimation's distribution and infer the parameter which is an approximately accurate estimation. Finally, we provide our script for converrting RR to SRR(standard recombination rate) to compare with other results.
+The main idea is to employ the likelihood recursive function for kinship [1],  where r as a variable, and use Maximum Likelihood Estimation (MLE) to estimate r. Technologically, r between two SNPs can be inferred in condition that there is linkage disequilibrium (LD) between the two SNPs. However, over 15K parent-child pairs are usually needed to infer r reliably (sample size comparable with the deCODE project and the AA map project). Thus, to enhance the power, we usually include 10 serial SNPs (with a region of ~ 10kbp) for inferring the r at a 10kbp region.
 
+We propose a Monte Carlo approach to infer the r between two SNPs with a evaluation of reliance. Tur script for converting the recombination rates with SNPs as the coordinate (gmap) to SRR(standard recombination rate) with physical distances as coordinate (rmap).
+
+Usage:
 We use the plink format *.ped , *.map and *.frq file in the following steps of estimation.
 
 Plink format:
@@ -25,9 +28,9 @@ Plink format:
         rs"\t"A"\t"T"\t"0.1577
         
 
-Step1.py:
+Step1 (python):
 
-In step1, we use plink format genotype file to create a set of recombination rate estimation between pairs of SNP sites with MLE. One pair of sites has 500 times repeat disturbance experiment. What's more, we use 'CubeX' python script in MLE to help us calculate the pairs' gametes frequency[2]. 
+Load the genotype dataset in a plink forma to estimate r between pairs of SNP sites by using MLE. The gametes frequencies of two SNPs are calucated by using the CubeX [2] python program. A total of 500 times of disturbance are performed for Monte Carlo estimation of r and reliance.
 
     Input parameters include: 
   
@@ -41,9 +44,9 @@ In step1, we use plink format genotype file to create a set of recombination rat
   
       -ncpus(with pp module)
 
-Step2.r: 
+Step2 (r): 
 
-We need a r-package named 'tmvtnorm'[3] to create gmap. In this step, we estimate the mean of disturbance experiment's data set whose distribution is truncated normal distribution. 
+We use the 'tmvtnorm' r-package[3] to estimate the mean r values of the 500 disturbation expriments, which form a truncated normal distribution. 
 
     Input parameters include:
     
