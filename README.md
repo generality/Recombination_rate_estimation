@@ -1,5 +1,5 @@
 # Recombination_rate_estimation
-Bioinformatics Scripts for estimating per-generation recombination rate (r) from parent-child genotyping data.
+Bioinformatics scripts for estimating per-generation recombination rate (r) from parent-child genotyping data.
 
 The main idea is to employ the likelihood recursive function for kinship [1],  where r as a variable, and use Maximum Likelihood Estimation (MLE) to estimate r. Technologically, r between two SNPs can be inferred in condition that there is linkage disequilibrium (LD) between the two SNPs. However, over 15K parent-child pairs are usually needed to infer r reliably (sample size comparable with the deCODE project and the AA map project). Thus, to enhance the power, we usually include 10 serial SNPs (with a region of ~ 10kbp) for inferring the r at a 10kbp region.
 
@@ -54,9 +54,9 @@ We use the 'tmvtnorm' r-package[3] to estimate the mean r values of the 500 dist
       
       -output_path
     
-Step3.py/Step4.py/Step5.py: 
+step 3-5 (python): 
 
-In this step, we convert gmap to rmap. Like Decode genetic method[4], we use the linear interpolation to calculate the SRR. 
+In these steps, we convert gmap to rmap as that in the deCode project[4]. We use the linear interpolation to calculate the SRR. 
 
 
     Input parameters include:
